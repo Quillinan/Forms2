@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+
+    <form [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm)">
+
+      <ion-list>
+        <ion-item [class.invalid]="registerForm.controls.name.invalid && registerForm.controls.name.touched">
+          <ion-label position="floating">Nome</ion-label>
+          <ion-input type="text" formControlName="name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-list class="ion-margin-top">
+        <ion-radio-group formControlName="genre">
+          <ion-list-header>
+            <ion-label>Gênero favorito</ion-label>
+          </ion-list-header>
+        
+        <ion-item>
+          <ion-label>Ação</ion-label>
+          <ion-radio slot="start" value="acao"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Romance</ion-label>
+          <ion-radio slot="start" value="romance"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Terror</ion-label>
+          <ion-radio slot="start" value="terror"></ion-radio>
+        </ion-item>
+        
+        </ion-radio-group>
+      </ion-list>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-button type="submit" color="danger" shape="round">Cadastrar</ion-button>
+      </ion-row>
+
+    </form>
+
+  </div>
+</ion-content>
